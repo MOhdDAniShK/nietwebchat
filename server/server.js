@@ -10,7 +10,7 @@ const connectDB = require('./config/db');
 const socketConfig = require('./socket');
 const path = require('path');
 
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, '.env') });
 connectDB();
 
 const User = require('./models/User');
@@ -62,7 +62,7 @@ socketConfig(server);
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/dist')));
 
-  app.get('*', (req, res) =>
+  app.get('/{*path}', (req, res) =>
     res.sendFile(path.resolve(__dirname, '../', 'client', 'dist', 'index.html'))
   );
 } else {
