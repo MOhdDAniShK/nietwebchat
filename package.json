@@ -1,0 +1,9 @@
+{
+    "name": "niet-chat-app",
+    "version": "1.0.0",
+    "description": "Root package for Render Deployment",
+    "scripts": {
+        "start": "cd server && npm start",
+        "build": "cd client && npm install && npm run build && cd ../server && npm install"
+    }
+}
