@@ -3,10 +3,11 @@
     "version": "1.0.0",
     "description": "NIET Web Chat - Real-time chat with WhatsApp-style features",
     "engines": {
-        "node": "18"
+        "node": "20.x"
     },
     "scripts": {
-        "build": "chmod +x render-build.sh && ./render-build.sh",
-        "start": "node server/server.js"
+        "build": "cd client && npm install && npx vite build && cd ../server && npm install",
+        "start": "node server/server.js",
+        "postinstall": "npm run build"
     }
 }

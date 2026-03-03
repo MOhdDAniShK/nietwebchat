@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -e
 
-echo "==> Installing client dependencies..."
+echo "==> Installing client dependencies (including dev)..."
 cd client
-npm install
+npm install --include=dev
 
 echo "==> Building client..."
-npm run build
+npx vite build
 
 echo "==> Installing server dependencies..."
 cd ../server
-npm install
+npm install --production
 
 echo "==> Build complete!"
